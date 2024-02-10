@@ -207,10 +207,11 @@ class PlayList {
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
         for (int i =0; i<size; i++){
-            if(tracks[i+1].getDuration() < tracks[i].getDuration()){
+            int minIn = minIndex(i);
+            if(minIn != i){
                 Track temp = tracks[i];
-                tracks[i] = tracks[i+1];
-                tracks[i+1]=temp;
+                tracks[i] = tracks[minIn];
+                tracks[minIn]=temp;
             }
         }
     }
